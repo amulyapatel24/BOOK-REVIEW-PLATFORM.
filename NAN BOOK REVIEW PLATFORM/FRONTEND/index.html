@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookShelf - College Book Review Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fa-solid fa-book-open-reader"></i> BookShelf</a>
+            <nav class="nav-links">
+                <a href="#books-section">Explore</a>
+                <button id="open-add-book-modal" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Book</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover & Review Your Favorite College Reads</h1>
+            <p>Connect with peers, share honest reviews, and find textbooks or novels recommended by students.</p>
+            <div class="hero-search">
+                <input type="text" id="hero-search-input" placeholder="Search by book title...">
+                <button id="hero-search-btn" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container" id="books-section">
+        <div class="controls-bar">
+            <div class="filter-group">
+                <label for="genre-filter">Filter by Genre:</label>
+                <select id="genre-filter">
+                    <option value="All">All Genres</option>
+                    <option value="Academics">Academics</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Biography">Biography</option>
+                    <option value="Self-Help">Self-Help</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="loading-indicator" class="loading hidden">
+            <i class="fa-solid fa-spinner fa-spin"></i> Loading books...
+        </div>
+
+        <div id="error-message" class="alert alert-error hidden"></div>
+
+        <!-- Books Grid -->
+        <div id="books-grid" class="books-grid"></div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state hidden">
+            <i class="fa-solid fa-books"></i>
+            <h3>No books found</h3>
+            <p>Try searching for something else or add a new book to the platform.</p>
+        </div>
+    </main>
+
+    <!-- Add Book Modal -->
+    <div id="add-book-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add a New Book</h2>
+            <form id="add-book-form">
+                <div class="form-group">
+                    <label for="title">Book Title *</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author *</label>
+                    <input type="text" id="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre *</label>
+                    <select id="genre" required>
+                        <option value="Academics">Academics</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Self-Help">Self-Help</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cover_url">Cover Image URL</label>
+                    <input type="url" id="cover_url" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Save Book</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Book Details & Reviews Modal -->
+    <div id="book-details-modal" class="modal hidden">
+        <div class="modal-content large-modal">
+            <span class="close-modal">&times;</span>
+            <div id="book-details-content"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 BookShelf. Built for college students & beginners.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
